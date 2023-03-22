@@ -317,7 +317,6 @@ import joblib
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import csr_matrix
-vectorizer = TfidfVectorizer( tokenizer=getTokens ,use_idf=True, smooth_idf=True, sublinear_tf=False)
 
 
 @app.route('/getanswer', methods =["GET", "POST"])
@@ -337,7 +336,7 @@ def getrecm():
         try:
             X_predict = [predictx]
             # Load the serialized vectorizer object from the file
-            with open('./vectorizer.pkl', 'rb') as f:
+            with open('vectorizer (2).pkl', 'rb') as f:
                 vectorizer = pickle.load(f)
 
             # Define some new URLs to transform
@@ -391,7 +390,8 @@ def getrecm():
             return render_template("result2.html",url_details=arr)
 
         except Exception as e:
-            return ("",y_Predict)
+            print(e)
+            return ("error")
 
 
 if __name__ == '__main__':  
