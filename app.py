@@ -249,11 +249,11 @@ def get_prediction_from_url(test_url):
     
         if int(pred[0]) == 0:
             
-            res="DEFACEMENT"
+            res="SAFE"
             return res
         elif int(pred[0]) == 1.0:
             
-            res="SAFE"
+            res="DEFACEMENT"
             return res
         elif int(pred[0]) == 2.0:
             res="PHISHING"
