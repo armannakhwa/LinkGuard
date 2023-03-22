@@ -239,7 +239,7 @@ def get_prediction_from_url(test_url):
         features_test = np.array(features_test).reshape((1, -1))
         print(features_test)
         # features_test=[0, 1, 2, 0, 0, 3, 0, 0, 0, 1, 0, 0, 1, 0, 73, 34, 0, 3, 61, 10, 3]
-        LGB_C = joblib.load('rf_model1.h5')
+        LGB_C = joblib.load('Models/rf_model1.h5')
         
 
         pred = LGB_C.predict(features_test)
@@ -336,7 +336,7 @@ def getrecm():
         try:
             X_predict = [predictx]
             # Load the serialized vectorizer object from the file
-            with open('vectorizer (2).pkl', 'rb') as f:
+            with open('Models/vectorizer.pkl', 'rb') as f:
                 vectorizer = pickle.load(f)
 
             # Define some new URLs to transform
@@ -353,7 +353,7 @@ def getrecm():
 
 
             # load the saved model
-            clfsm = joblib.load('rf_model2.h5')
+            clfsm = joblib.load('Models/rf_model2.h5')
             y_Predict = clfsm.predict(X_predict)
             #print(y_Predict)
 
