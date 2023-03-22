@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>URL to Base64 Converter and VirusTotal Checker</title>
+</head>
+<body>
+  <h1>Enter a URL to check with VirusTotal:</h1>
+  <input type="text" id="urlInput">
+  <button onclick="checkUrl()">Check URL</button>
+  <div id="result"></div>
+
+  <script>
+    function checkUrl() {
+      const url = document.getElementById('urlInput').value;
+      const base64Url = getBase64Url(url);
+
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          'x-apikey': '9a3a5e5cce1ee2dcd22689ecd3285e047fa0968a5f08cf83e21608f505ae9c25'
+        }
+      };
+
+      fetch(`https://www.virustotal.com/api/v3/urls/${base64Url}`, options)
+        .then(response => response.json())
+        .then(response => {
+          const result = document.getElementById('result');
+          let last_analysis_results =response.data.attributes.last_analysis_results;
+          let total_votes=response.data.attributes.total_votes
+          let threat_names= response.data.attributes. threat_names
+          let last_http_response_headers=response.data.attributes.last_http_response_headers
+
+          console.log(total_votes)
+          result.innerHTML = `total_vote:<ul><li>harmless:${total_votes.harmless}</li><li>malicious:${total_votes.malicious}</li><br>threat_names${threat_names}<br>last_http_response_headers:${last_http_response_headers}<br>last_analysis_results:${JSON.stringify(last_analysis_results)}`;
+
+          // last_analysis_results[0].map(function(currentValue, index, arr){console.log(currentValue)})
+        })
+        .catch(err => console.error(err));
+    }
+
+    function getBase64Url(url) {
+      const utf8Encoded = unescape(encodeURIComponent(url));
+      const base64Encoded = btoa(utf8Encoded);
+      const base64Url = base64Encoded.replace(/=/g, '');
+      return base64Url;
+    }
+  </script>
+</body>
+</html>
+
+
+
+

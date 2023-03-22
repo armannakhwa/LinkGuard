@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Suspicious Link Detection System</title>
+
+    <style>
+       
+        body {
+            margin: 0;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            /* background: url("../static/pic1.jpg") no-repeat ; */
+            background-color: black;
+            color: #fff;
+
+        }
+
+        navbar {
+            width: 100%;
+            overflow: hidden;
+
+        }
+
+        /* b {
+            display: block;
+        } */
+
+        .m-screen{
+            /* display:flex; */
+            /* place-items: center; */
+            /* height: 90vh; */
+            height:100%
+        }
+        .fluid-container{
+            /* padding: 22px  !important; */
+            /* border-radius: 10px; */
+            /* border: 1px solid;  */
+            height:100% ;
+            background-color:none;
+
+            /* width:1000px !important; */
+    
+            
+            
+            
+        }
+       h1 {
+        padding: 20px;
+    font-size: 48px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center !important;
+    display: block;
+  
+}
+.iicon{
+    padding: 10px;
+    margin-top: 20px;
+}
+ h2,p {
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+  
+    text-align: center;
+    line-height: 28px;
+    color: #c1c1c1;
+    font-weight: 450;
+}
+
+h3 {
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 25px;
+  
+    text-align: center;
+    line-height: 28px;
+    color: #c1c1c1;
+    font-weight: 500;
+}
+
+input{
+    width: 500px !important;
+    text-align: center;
+    background-color:transparent;
+}
+.section1{
+    padding: 20px;
+    margin-top: 20px;
+}
+
+button{
+    padding: 20px;
+    margin-top: 20px; 
+}
+
+
+
+        #result{
+           
+            font-weight: bold;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            
+            
+        }
+    </style>
+<link rel="icon" href="https://storage.googleapis.com/hexomatic-automation-icons/malicious-url-check.svg" type="image/x-icon"/>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="#">
+        <img src="https://storage.googleapis.com/hexomatic-automation-icons/malicious-url-check.svg" width="40" height="40" class="d-inline-block align-top" alt="" loading="lazy">
+        URL CHECKER
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="./news.html"> News</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<body>
+    <div class="m-screen">
+    <div class="fluid-container"  >
+        <div class="iicon text-center">
+            <img src="https://storage.googleapis.com/hexomatic-automation-icons/malicious-url-check.svg" width="100" height="100" alt="Free URL Checker" class="img-icon">
+            </div>
+             <h1 > Free URL scanner and Website checker to <br>detect phishing, scam sites fraudulent sites </h1>
+             <h2>URL checker is a free tool to detect malicious URLs including malware, scam and phishing links. <br> Safe link checker scan URLs for malware, viruses, scam and phishing links. <br> Website checker verifies whether or not a website is legit, phishing or a scam. </h2>
+            <div class="form-group">
+                <p class="about col-8 m-auto text-center d-none d-md-block"> Analyse suspicious URLs to detect malware and other breaches, automatically share them with the security community. </p>
+                
+                <b><h3 _ngcontent-utf-c16="" id="check-site-status">Check if a website is Safe or Malware website </h3></b>
+                <div class="iicon text-center">
+                <img src="https://www.creativefabrica.com/wp-content/uploads/2021/04/04/Virus-scan-icon-Graphics-10353077-1-580x386.jpg" width="100" height="100" alt="Free URL Checker" class="img-icon">
+            </div>
+            <div class="section1">
+                <form action="/getanswer" method="post">
+            <center><label for="mname" style="color: #fff;">Url Name</label>
+                 <input type="text" class="form-control" name="mname" id="mname" placeholder="Enter URL Name Here"> 
+                 <button type="submit"  class="btn btn-primary">Detect</button></center>
+       
+                 <br>
+                </form>
+            </div>
+        </div>
+
+       <center>  
+       <div id="result">
+
+       </div>
+    </center>  
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+    <script>
+        function detect(){
+            let uname = document.getElementById("mname").value;
+            if(uname!=''){
+      document.getElementById("result").innerHTML="Processing";
+
+            console.log(uname);
+            let FD = new FormData();
+            FD.append("mname",uname)
+            var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      document.getElementById("result").innerHTML=this.responseText;
+    }
+  };
+  xhttp.open("POST", "/getanswer", true);
+  xhttp.send(FD);
+        }
+    
+    else{
+        alert("Please Enter the URL")
+    }
+}
+    </script>
+
+
+</body>
+
+</html>

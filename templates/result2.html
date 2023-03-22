@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    table tr th,
+    td {
+      width: 40%;
+      text-align: left;
+    }
+
+    .c-conatiner {
+      display: grid;
+      overflow: auto;
+
+
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .c-data {
+      /* background-color: aqua; */
+      padding: 12px;
+      overflow: auto;
+
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>LinkGuard: Suspicious link detection system</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <h1><a href="/">LinkGuard</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li> <a class="nav-link" href="/"> Home</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Result</a></li>
+
+
+
+          <li><a class="nav-link scrollto" href="/#services">Services</a></li>
+
+          <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+          <li>
+            <a class="nav-link" href="{{url_for('news')}}"> News</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{url_for('prevention')}}"> Preventions</a>
+          </li>
+        </ul>
+
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+
+    <!-- ======= result Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <br>
+          <h2>LinkGuard</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Detection</li>
+              <li data-filter=".filter-card">Details</li>
+              <li data-filter=".filter-web">Analysis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-md-12 portfolio-item filter-app">
+            <div class="">
+              <center>
+                <div id="status" style="font-size: 25px;">
+                  <div class="alert alert-primary" style="width: fit-content;" role="alert">
+                    Model 1:{{url_details[0]}}
+                  </div>
+                  <div class="alert alert-primary" style="width: fit-content;" role="alert">
+                    Model 2:{{url_details[6]}}
+                  </div>
+                  <div class="alert alert-primary" id="virus_t" style="width: fit-content;" role="alert">
+
+                  </div>
+
+                </div>
+              </center>
+            </div>
+          </div>
+
+          <div class="col-md-12 portfolio-item filter-card">
+            <div class="">
+              <div class="c-data ">
+                <center>
+
+
+                  <table class="table">
+                    <!-- <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Handle</th>
+                    </tr>
+                  </thead> -->
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <h2>Final_url:</h2>
+                        </th>
+                        <td>{{url_details[1]}}</td>
+
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <h2>Status_code:</h2>
+                        </th>
+                        <td>{{url_details[2]}}</td>
+
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <h2>Body_length:</h2>
+                        </th>
+                        <td>{{url_details[3]}}</td>
+
+                      </tr>
+
+                      <tr>
+                        <th scope="row">
+                          <h2>Headers:</h2>
+                        </th>
+                        <td>
+                          <div id="headersdata">
+
+
+                          </div>
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                        <th scope="row">
+                          <h2>Meta_tags:</h2>
+                        </th>
+                        <td>{{url_details[5]}}</td>
+
+                      </tr>
+
+                      <tr>
+                        <th scope="row">
+                          <h2>Threat_names:</h2>
+                        </th>
+                        <td>
+                          <div id="threat_names"></div>
+                        </td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </center>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 portfolio-item filter-web">
+            <div class="">
+              <center>
+                <div id="resultA"></div>
+              </center>
+            </div>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </section><!-- End result Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>LinkGuard</span></strong>. All Rights Reserved
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+
+  <script>
+    let d = JSON.parse({{ url_details[4]| tojson }})
+    console.log(d)
+    let n = document.getElementById("headersdata");
+    for (let i in d) {
+      n.innerHTML += "" + "<ul>" + i + ": " + d[i] + "<br>"
+      "<br>"
+
+    }
+
+    let w_status = "{{url_details[0]}}".toString()
+    console.log(w_status)
+  // if(w_status=="good"){
+  //     document.getElementById("status").style="background-color:green";
+  // }
+
+  // if(w_status=="bad"){
+  //     document.getElementById("status").style="background-color:red";
+  // }
+  </script>
+
+
+  <script>
+
+    let url = "{{url_details[1]}}".toString();
+    const base64Url = getBase64Url(url);
+
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        'x-apikey': '9a3a5e5cce1ee2dcd22689ecd3285e047fa0968a5f08cf83e21608f505ae9c25'
+      }
+    };
+
+    fetch(`https://www.virustotal.com/api/v3/urls/${base64Url}`, options)
+      .then(response => response.json())
+      .then(response => {
+        let resultA = document.getElementById('resultA');
+        let last_analysis_results = response.data.attributes.last_analysis_results;
+        let total_votes = response.data.attributes.total_votes
+        let threat_names = response.data.attributes.threat_names
+        let last_http_response_headers = response.data.attributes.last_http_response_headers
+
+
+        console.log(total_votes)
+
+        const detect = document.getElementById('virus_t');
+        const threat_name = document.getElementById('threat_names')
+        Object.keys(last_analysis_results).map(key => {
+          console.log(`${key}:`);
+          let ikd = last_analysis_results[key];
+          console.log(ikd.result)
+          virus_t.innerHTML = `Total Votes:<ul><li>harmless: ${total_votes.harmless}</li><li>malicious: ${total_votes.malicious}</li>`
+
+          threat_names.innerHTML = `Threat_names: ${threat_names}`
+          resultA.innerHTML += `
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th scope="row">${key}</th>
+                      <td>${ikd.category}</td>
+                      <td>${ikd.result}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                `;
+
+
+        });
+        // last_analysis_results[0].map(function(currentValue, index, arr){console.log(currentValue)})
+      })
+      .catch(err => console.error(err));
+
+
+    function getBase64Url(url) {
+      const utf8Encoded = unescape(encodeURIComponent(url));
+      const base64Encoded = btoa(utf8Encoded);
+      const base64Url = base64Encoded.replace(/=/g, '');
+      return base64Url;
+    }
+  </script>
+
+</body>
+
+</html>

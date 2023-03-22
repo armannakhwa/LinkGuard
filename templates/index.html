@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>LinkGuard: Suspicious link detection system</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+
+        <h1><a href="/"> LinkGuard</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+
+
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li>
+            <a class="nav-link" href="{{url_for('news')}}"> News</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{{url_for('prevention')}}"> Prevention</a>
+          </li>
+
+        </ul>
+
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+          data-aos="fade-up">
+          <div>
+            <h1>Empowering you to make informed link-clicking decisions</h1>
+            <h2>Don't risk it, check it with us.</h2>
+            <form action="/getanswer" method="post">
+              <center><label for="mname" style="color: #fff;">Url Name</label>
+                <input type="text" class="form-control" name="mname" id="mname" placeholder="Enter URL Name Here">
+                <button type="submit" class="btn-get-started scrollto btn-primary my-2">Detect</button>
+              </center>
+
+              <br>
+            </form>
+
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
+          <img src="static/img/hero-img.png" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="zoom-in">
+            <img src="static/img/about.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
+            <div class="content pt-4 pt-lg-0">
+              <h3>Learn more about us</h3>
+              <p class="fst-italic">
+                At LinkGuard, our mission is to provide our users with a safe and secure online experience by offering a
+                cutting-edge suspicious link detection system.
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle"></i> Our system uses machine learning and deep learning algorithms to
+                  detect harmful links and alert users.</li>
+                <li><i class="bi bi-check-circle"></i> Analyze each link to detect potential threats</li>
+                <li><i class="bi bi-check-circle"></i> Designed to provide you with peace of mind and security</li>
+              </ul>
+              <p>
+                We're dedicated to ensuring that our users are protected and secure while browsing the internet, and
+                we're constantly working to improve and update our system to stay ahead of potential threats.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item" data-aos="fade-up">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+                  <h4>User-friendly interface</h4>
+                  <p>Our website is designed to be user-friendly and easy to navigate.</p>
+                </a>
+              </li>
+              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="100">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                  <h4>Continuous improvement</h4>
+                  <p>We are constantly working to improve our system by implementing the latest technology and
+                    techniques.</p>
+                </a>
+              </li>
+              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="200">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+                  <h4>Collaborative approach</h4>
+                  <p>We believe in a collaborative approach to cybersecurity and work closely with our users to provide
+                    the best possible protection and support.</p>
+                </a>
+              </li>
+              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+                  <h4>Machine learning and deep learning algorithms</h4>
+                  <p>Our system uses advanced machine learning and deep learning algorithms to detect suspicious links,
+                    analyze their content.</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <figure>
+                  <img src="static/img/features-1.png" alt="" class="img-fluid">
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <figure>
+                  <img src="static/img/features-2.png" alt="" class="img-fluid">
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <figure>
+                  <img src="static/img/features-3.png" alt="" class="img-fluid">
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <figure>
+                  <img src="static/img/features-4.png" alt="" class="img-fluid">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Services</h2>
+          <p>At LinkGuard, we offer a range of services to help our users stay safe online, including detection using
+            machine learning models, verification through the VirusTotal API, and practical steps to prevent against
+            suspicious links.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
+            <div class="icon-box icon-box-pink">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="/">Detection using Machine Learning Model</a></h4>
+              <p class="description">We will offer a cutting-edge suspicious link detection system that utilizes machine
+                learning models to detect and analyze harmful links in real-time.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+            data-aos-delay="100">
+            <div class="icon-box icon-box-cyan">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title"><a href="">Verification through VirusTotal API</a></h4>
+              <p class="description">In addition to our machine learning model, we will also provide verification
+                services through the use of the VirusTotal API.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+            data-aos-delay="200">
+            <div class="icon-box icon-box-green">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="{{url_for('news')}}">Phishing URLs News:</a></h4>
+              <p class="description">Our platform will also provide users with the latest news and information related
+                to phishing URLs.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+            data-aos-delay="300">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title"><a href="{{url_for('prevention')}}">Steps to Prevent Against Suspicious Links</a></h4>
+              <p class="description">We will also provide users with practical steps and best practices to prevent
+                against suspicious links.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+
+
+
+
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>With a diverse range of expertise and backgrounds, our team brings a wealth of knowledge and skills to the
+            development and maintenance of our suspicious link detection system.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-3">
+            <div class="member" data-aos="zoom-in">
+              <div class="pic"><img src="static/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Afiya Borkar</h4>
+                <span>Software Developer</span>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="static/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Rifah Solkar</h4>
+                <span>Software Developer</span>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="static/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Pranali Shingare</h4>
+                <span>Software Developer</span>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <div class="pic"><img src="static/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Shreya Khedaskar</h4>
+                <span>Software Developer</span>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-right">
+            <div class="info">
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>afiyaborkar34@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+91 9503803937</p>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
+            <form
+              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSedyUThYDA2yE2_Z-Skkk0Sox4USib5esRJbIInvJw41UGnYA/formResponse"
+              method="POST" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="entry.379667166" class="form-control" required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="entry.928305273" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="entry.1935425254" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="entry.392181103" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>LinkGuard</span></strong>. All Rights Reserved
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+  <script>
+    function detect() {
+
+
+      let uname = document.getElementById("mname").value.trim();
+
+      if (uname != '') {
+
+
+
+        document.getElementById("result").innerHTML = "Processing";
+
+        console.log(uname);
+        let FD = new FormData();
+        FD.append("mname", uname.href)
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            document.getElementById("result").innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("POST", "/getanswer", true);
+        xhttp.send(FD);
+      }
+
+      else {
+        alert("Please Enter the URL")
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>
